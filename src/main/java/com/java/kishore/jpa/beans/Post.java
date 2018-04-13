@@ -12,9 +12,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "POSTS")
@@ -32,7 +33,8 @@ public class Post implements Serializable {
 	@Column(name = "POSTED_ON")
 	private Date postedOn;
 
-	@OneToMany(mappedBy = "post", fetch = FetchType.LAZY, targetEntity = Comment.class, cascade = CascadeType.ALL)
+    @JsonManagedReference
+	@OneToMany(mappedBy = "post", fetch = FetchType.EAGER, targetEntity = Comment.class, cascade = CascadeType.ALL)
 	private Set<Comment> comments;
 	
 

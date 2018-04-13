@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "COMMENTS")
 public class Comment implements Serializable {
@@ -23,11 +25,13 @@ public class Comment implements Serializable {
 	private Integer id;
 	@Column(name = "COMMENT")
 	private String comment;
-	/*@Column(name = "POST_ID")
-	private Integer postId;*/
-	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="POST_ID")
+	/*
+	 * @Column(name = "POST_ID") private Integer postId;
+	 */
+
+	@JsonBackReference
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "POST_ID")
 	private Post post;
 
 	public Post getPost() {
