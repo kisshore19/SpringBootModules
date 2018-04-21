@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -30,6 +31,7 @@ public class Post implements Serializable {
 	private String content;
 	@Column(name = "DESCRIPTION")
 	private String description;
+	
 	@Column(name = "POSTED_ON")
 	private Date postedOn;
 
@@ -37,7 +39,12 @@ public class Post implements Serializable {
 	@OneToMany(mappedBy = "post", fetch = FetchType.EAGER, targetEntity = Comment.class, cascade = CascadeType.ALL)
 	private Set<Comment> comments;
 	
-
+    
+    @PrePersist
+	void onCreate() {
+		this.postedOn = new java.util.Date();
+	}
+    
 	public Integer getId() {
 		return id;
 	}
@@ -50,7 +57,8 @@ public class Post implements Serializable {
 	public String getContent() {
 		return content;
 	}
-
+	
+	
 	public Post setContent(String content) {
 		this.content = content;
 		return this;

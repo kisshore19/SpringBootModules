@@ -63,6 +63,14 @@
 			<!-- <version>2.7.6</version> -->
 		</dependency>
 
+
+		<!-- For development : no need to restart the server for changes -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+
 	</dependencies>
 
 
