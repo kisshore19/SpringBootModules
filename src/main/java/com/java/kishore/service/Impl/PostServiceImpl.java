@@ -44,7 +44,7 @@ public class PostServiceImpl implements PostService {
 	
 	@Override
 	public List<Post> updatePosts(List<Post> posts) {
-		List<Post> save = postRepository.save(posts);
+		List<Post> save = postRepository.saveAll(posts);
 		postRepository.flush();
 		return save;
 	}

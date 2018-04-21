@@ -35,7 +35,7 @@ public class Post implements Serializable {
 	@Column(name = "POSTED_ON")
 	private Date postedOn;
 
-    @JsonManagedReference
+	@JsonManagedReference
 	@OneToMany(mappedBy = "post", fetch = FetchType.EAGER, targetEntity = Comment.class, cascade = CascadeType.ALL)
 	private Set<Comment> comments;
 	

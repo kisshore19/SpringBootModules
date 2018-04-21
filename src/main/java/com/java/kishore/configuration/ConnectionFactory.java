@@ -1,8 +1,11 @@
-package com.java.kishore.configuration;
+/*package com.java.kishore.configuration;
+
+import javax.persistence.EntityManagerFactory;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.vendor.HibernateJpaSessionFactoryBean;
@@ -30,4 +33,11 @@ public class ConnectionFactory {
 	public HibernateJpaSessionFactoryBean sessionFactory() {
 	    return new HibernateJpaSessionFactoryBean();
 	}
+	
+	@Bean
+	public SessionFactory sessionFactory(
+	        @Qualifier("entityManagerFactory") EntityManagerFactory emf) {
+	    return emf.unwrap(SessionFactory.class);
+	}
 }
+*/

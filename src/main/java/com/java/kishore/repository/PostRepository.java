@@ -17,9 +17,9 @@ public interface PostRepository extends JpaRepository<Post, Serializable> {
 	//public Post save(Iterable<Post> entity);
 	/*public List<Post> save(Iterable<Post> entities);*/
 	
-	@Override
+/*	@Override
 	Post findOne(Serializable id);
-
+*/
 	public Post findById(Integer postId);
 
 	public List<Post> findByContent(String content);

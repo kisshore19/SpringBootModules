@@ -1,17 +1,11 @@
 package com.java.kishore.dao.common;
 
-import java.io.Serializable;
-
 import javax.transaction.Transactional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.java.kishore.configuration.ConnectionFactory;
 
 @Transactional
 public abstract class AbstractDao {
 
-	@Autowired
+	/*@Autowired
 	ConnectionFactory connectionFactory;
 
 	// Saving object
@@ -25,7 +19,7 @@ public abstract class AbstractDao {
 	public void delete(Object object) {
 		connectionFactory.getSession().delete(object);
 
-	}
+	}*/
 	
 	
 
@@ -38,12 +32,12 @@ public abstract class AbstractDao {
 
 	}*/
 
-	public ConnectionFactory getConnectionFactory() {
+	/*public ConnectionFactory getConnectionFactory() {
 		return connectionFactory;
 	}
 
 	public void setConnectionFactory(ConnectionFactory connectionFactory) {
 		this.connectionFactory = connectionFactory;
-	}
+	}*/
 
 }
