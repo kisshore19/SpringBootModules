@@ -11,6 +11,8 @@ public interface CommentService {
 
 	public Comment findCommentById(Integer CommentId);
 
+	public List<Comment> searchCommentAndItsPost(String key);
+
 	public List<Comment> findCommentByContent(String content);
 
 	public List<Comment> findCommentByDescription(String descrition);

@@ -49,7 +49,16 @@ public class CommetnsRestResource {
 			searchComment = commentService.searchComment(searchKey.get());
 		}
 		return ResponseEntity.ok(searchComment);
+	}
 
+	@RequestMapping(value = "searchWithPost/{key}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Comment>> searchCommentWithPost(@PathVariable("key") Optional<String> searchKey) {
+		
+		List<Comment> searchComment = null;
+		if (searchKey.isPresent()) {
+			searchComment = commentService.searchCommentAndItsPost(searchKey.get());
+		}
+		return ResponseEntity.ok(searchComment);
 	}
 
 }
