@@ -66,4 +66,9 @@ public class CommentServiceImpl implements CommentService {
 		return null;
 	}
 
+	
+	@Override
+	public List<Comment> searchComment(String key) {
+		return commentRepository.findComments(key);
+	}
 }

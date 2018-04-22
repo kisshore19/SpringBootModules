@@ -22,4 +22,6 @@ public interface CommentService {
 	public void saveCommentWithComment(Comment comment);
 
 	public List<Comment> listComment();
+
+	public List<Comment> searchComment(String key);
 }
