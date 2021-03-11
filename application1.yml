@@ -3,7 +3,7 @@ spring:
     name: SpringBoot By kishore
 
   datasource:
-    url: jdbc:mysql://localhost:3306/employees
+    url: jdbc:mysql://mysqldb:3306/employees
     username: root
     password: root
 
