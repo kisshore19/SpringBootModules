@@ -59,7 +59,32 @@ Create a container from an image
 	docker run -it -d ubuntu
 	-it : interactive mode 
 	-d  : detached mode
-docker container create <image_name> <tag>
+	-e  : will take an options (input)
+	
+	---- creates a mysql container with the port number
+	docker run -eMYSQL_ROOT_PASSWORD=root -it -d -p 1000:3306 mysql
+	    -p is on which port you want to run
+	    1000 is in which port you want to run 
+	    3306 if 1000 port is not available then it will use 3306
+	
+	docker run --help will give you list of options like IP, Port etc.
+	
+    
+    We can create many container from an image
+    Ex : 
+    root@hydlpt144:/home/kishore/CodeBase/repos/SpringBootModules# docker run -eMYSQL_ROOT_PASSWORD=root -p 1000:3306 --ip 192.168.56.130 -it -d  mysql
+    2edfd1813c6c2cbe3c036e504b32bd3c347b5b24592c1bb117e04e46c5f4dc87
+    root@hydlpt144:/home/kishore/CodeBase/repos/SpringBootModules# docker run -eMYSQL_ROOT_PASSWORD=root -p 1000:3306 --ip 192.168.56.131 -it -d  mysql
+    09f3d637a34482ea32db933e6e4366a6e7e01bed41b0d14d4df0493fc3938e7d
+    docker: Error response from daemon: driver failed programming external connectivity on endpoint priceless_sammet (a1f68e35ef989f7b6762b7a9e2375612e5977e3bd8960562213c831695fd6eaf): Bind for 0.0.0.0:1000 failed: port is already allocated.
+    root@hydlpt144:/home/kishore/CodeBase/repos/SpringBootModules# docker run -eMYSQL_ROOT_PASSWORD=root -p 1000:3306 --ip 192.168.56.132 -it -d  mysql
+    eafbae71826182f7a69d97ff4a99f76fc6fe258ad3b2e5f761d9593dcbde309b
+    docker: Error response from daemon: driver failed programming external connectivity on endpoint youthful_khayyam (b439359bc61c6093d9797519eba2075bc1a6bd7fec95e68b75542bf56869cca7): Bind for 0.0.0.0:1000 failed: port is already allocated.
+    root@hydlpt144:/home/kishore/CodeBase/repos/SpringBootModules# docker run -eMYSQL_ROOT_PASSWORD=root -p 1001:3306 --ip 192.168.56.132 -it -d  mysql
+    b8d569f208838bc5be344113b83c8a44685aef1a526574d190bb4852a64ae5f6
+    root@hydlpt144:/home/kishore/CodeBase/repos/SpringBootModules# docker run -eMYSQL_ROOT_PASSWORD=root -p 1003:3306 --ip 192.168.56.133 -it -d  mysql
+    8e8854ac8dcd5a507d6ad0c6be2bb18a2b6a5e2404dd357126f80fbcc0b4c68a
+
 
 See list of docker containers
 
@@ -83,7 +108,6 @@ Login docker from local machine
 
 	docker login
 	If you face any issues while login use this (sudo apt install gnupg2 pass) to by pass 
-
 
 Commit new image
 
